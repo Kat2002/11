@@ -1,0 +1,225 @@
+public partial class Form1 : Form
+
+{
+
+public Form1()
+
+{
+
+InitializeComponent();
+
+}
+
+private void Form1_Load(object sender, EventArgs e)
+
+{
+
+this.студентыTableAdapter.Fill(this.journalDataSet.Студенты);
+
+this.должностиTableAdapter.Fill(this.journalDataSet.Должности);
+
+this.полTableAdapter.Fill(this.journalDataSet.Пол);
+
+this.преподавателиTableAdapter.Fill(this.journalDataSet.Преподаватели);
+
+}
+
+private void toolStripButton1_Click(object sender, EventArgs e)
+
+{
+
+Cursor.Current = Cursors.WaitCursor;
+
+try
+
+{
+
+this.Validate();
+
+this.преподавателиBindingSource.EndEdit();
+
+this.преподавателиTableAdapter.Update(journalDataSet.Преподаватели);
+
+MessageBox.Show("Сохраненено");
+
+}
+
+catch (Exception ex)
+
+{
+
+MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+}
+
+Cursor.Current = Cursors.Default;
+
+}
+
+private void toolStripButton8_Click(object sender, EventArgs e)
+
+{
+
+Cursor.Current = Cursors.WaitCursor;
+
+try
+
+{
+
+this.Validate();
+
+this.студентыBindingSource.EndEdit();
+
+this.студентыTableAdapter.Update(journalDataSet.Студенты);
+
+MessageBox.Show("Сохраненено");
+
+}
+
+catch (Exception ex)
+
+{
+
+MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+}
+
+Cursor.Current = Cursors.Default;
+
+}
+
+private void button1_Click(object sender, EventArgs e)
+
+{
+
+Form2 frm = new Form2();
+
+frm.Owner = this.Owner;
+
+frm.ShowDialog();
+
+}
+
+}
+
+Класс Form2.cs
+
+public partial class Form2 : Form
+
+{
+
+public Form2() { InitializeComponent(); }
+
+private void Form2_Load(object sender, EventArgs e)
+
+{
+
+this.оценкиTableAdapter1.Fill(this.jourlanDataSet.Оценки);
+
+this.студентыTableAdapter.Fill(this.journalDataSet.Студенты);
+
+this.оценкиTableAdapter.Fill(this.journalDataSet.Оценки);
+
+this.преподавателиTableAdapter.Fill(this.journalDataSet.Преподаватели);
+
+this.предметыTableAdapter.Fill(this.journalDataSet.Предметы);
+
+this.занятиеTableAdapter.Fill(this.journalDataSet.Занятие);
+
+}
+
+private void toolStripButton1_Click(object sender, EventArgs e)
+
+{
+
+Cursor.Current = Cursors.WaitCursor;
+
+try
+
+{
+
+this.Validate();
+
+this.занятиеBindingSource.EndEdit();
+
+this.занятиеTableAdapter.Update(journalDataSet.Занятие);
+
+MessageBox.Show("Сохраненено");
+
+}
+
+catch (Exception ex)
+
+{
+
+MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+}
+
+Cursor.Current = Cursors.Default;
+
+}
+
+private void toolStripButton8_Click(object sender, EventArgs e)
+
+{
+
+Cursor.Current = Cursors.WaitCursor;
+
+try
+
+{
+
+this.Validate();
+
+this.предметыBindingSource.EndEdit();
+
+this.предметыTableAdapter.Update(journalDataSet.Предметы);
+
+MessageBox.Show("Сохраненено");
+
+}
+
+catch (Exception ex)
+
+{
+
+MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+}
+
+Cursor.Current = Cursors.Default;
+
+}
+
+private void toolStripButton15_Click(object sender, EventArgs e)
+
+{
+
+Cursor.Current = Cursors.WaitCursor;
+
+try
+
+{
+
+this.Validate();
+
+this.оценкиBindingSource1.EndEdit();
+
+this.оценкиTableAdapter1.Update(jourlanDataSet.Оценки);
+
+MessageBox.Show("Сохраненено");
+
+}
+
+catch (Exception ex)
+
+{
+
+MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+}
+
+Cursor.Current = Cursors.Default;
+
+} }
